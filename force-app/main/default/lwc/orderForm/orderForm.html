@@ -1,0 +1,45 @@
+<template>
+
+    <lightning-card title="Purchase Request Order Form">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox label="Account"
+                                placeholder="Select an Account"
+                                value={accValue}
+                                options={optionsArray}
+                                onchange={handleSelectedAccount}
+                                required> 
+            </lightning-combobox>
+
+            <lightning-input name="quantityToPurchase"
+                             type="number"
+                             label="Quantity to Purchase"
+                             onchange={handleQuantityInput}
+                             required>
+            </lightning-input>
+
+            <div class="slds-text-align_right slds-m-top_x-small">
+
+                <lightning-button
+                                    variant="brand"
+                                    label="Submit a Request"
+                                    type="submit"
+                                    onclick={handleRequestBtn}>
+                </lightning-button>
+                <p>test: {typedValue}</p>
+                <p>status: {handleInput}</p>
+            </div>
+
+			 <template if:true={error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the Account list.
+				</div>
+			</template> 
+
+        </div> 
+
+    </lightning-card>
+
+</template>
+
+
+
